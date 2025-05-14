@@ -18,12 +18,25 @@
             int[] cards = dealCards();
             bool gameWon = false;
             // add your code here
-
-
+            int consecutiveCount = 1; 
+            for (int i = 1; i < cards.Length; i++)
+            {
+                if (cards[i] == cards[i - 1] + 1)
+                {
+                    consecutiveCount++;
+                    if (consecutiveCount == 5)
+                    {
+                        gameWon = true;
+                    }
+                }
+                else
+                {
+                    consecutiveCount = 1;
+                }
+            }
             // end of your code
             Console.WriteLine(gameWon);
         }
-
         // you don't need to change anything below here
         static int[] dealCards()
         {
